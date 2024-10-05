@@ -1,0 +1,87 @@
+/*
+Theme Name:	 ClearBlue 2021 Child
+Description: ClearBlue 2021 Child is a child theme of Twenty Twenty-One, for Fulcrum Claims Consulting
+Author:      Martin
+Template:    twentytwentyone
+Version:     1.0.0
+Text Domain: ClearBlue-2021-child
+*/
+
+@font-face {
+	font-family: 'Montserrat';
+	src: local('Montserrat'),
+	     url('assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--blue-dark:  #023047;
+	--blue:       #219ebc;
+	--blue-bg:    #1b8199;
+	--blue-light: #8ecae6;
+	--orange:     #f58300;
+	--yellow:     #ffc533;
+	--black:      #000000;
+	--white:      #ffffff;
+	--color-text:       var(--white);
+	--color-link:       var(--white);
+	--color-link-hover: var(--white);
+
+	--type-scale:     1.333; /* Perfect Fourth */
+	--gap:            1.333rem;
+	--border-radius:  0.5rem;
+}
+
+.editor-styles-wrapper {
+	background-color: var(--blue-dark);
+	background: linear-gradient(45deg, var(--blue-bg) 0%, var(--blue-dark) 100%);
+	color: var(--white);
+	font-family: Montserrat, Arial, 'Open Sans', sans-serif;
+	font-weight: 500;
+}
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	font-weight: 700;
+}
+
+.editor-styles-wrapper h6 {
+	font-size: 1rem;
+}
+.editor-styles-wrapper h6.h6pill {
+	color: var(--white);
+	padding: 0.5rem 1rem;
+	border-radius: 2rem;
+	background: linear-gradient( to right, var(--purple), var(--blue-dark) );
+}
+
+.block-editor-block-list__block.wp-block-group.page-header {
+	background: linear-gradient(to right, var(--blue-dark), var(--blue-light));
+	padding-top: var(--gap);
+	padding-bottom: var(--gap);
+}
+.block-editor-block-list__block.wp-block-group.page-header h1 {
+	color: var(--white);
+}
+
+.block-editor-block-list__block.wp-block-group.ready-to-meet {
+	background-color: var(--purple);
+	padding-top: var(--gap);
+	padding-bottom: var(--gap);
+}
+
+.block-editor-block-list__block.wp-block-group.fancy-list {
+	border-left: 3px solid var(--purple);
+	padding-left: 1rem;
+}
+
+.block-editor-rich-text__editable.wp-block-button__link.wp-element-button {
+	background-color: var(--purple);
+	border: 3px solid var(--white);
+	border-radius: var(--border-radius);
+}

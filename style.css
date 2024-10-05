@@ -1,0 +1,222 @@
+/*
+Theme Name:	 Ignite Performance Child
+Description: Child theme of 'Base Layer' theme
+Author:      Martin
+Template:    baselayer
+Version:     1.0.0
+*/
+
+:root {
+
+	--blue-dark:  #023047;
+	--blue:       #219ebc;
+	--blue-bg:    #1b8199;
+	--blue-light: #8ecae6;
+	--orange:     #f58300;
+	--yellow:     #ffc533;
+
+	--color-text:       var(--white);
+	--color-link:       var(--orange);
+	--color-link-hover: var(--purple-dark);
+
+	--type-scale:     1.333; /* Perfect Fourth */
+	--gap:            1.333rem;
+
+	--font-size-0: 18px;
+
+	--font-primary:   Montserrat, Arial, 'Open Sans', sans-serif;
+	--font-secondary: var(--font-primary);
+	--font-heading:   var(--font-secondary);
+
+	--border-radius:  0.125rem;
+
+}
+
+/* GENERAL DEFINED COLOR CLASSES */
+.has-blue-dark-color  { color: var(--blue-dark); }
+.has-blue-color       { color: var(--blue); }
+.has-blue-light-color { color: var(--blue-light); }
+.has-yellow-color     { color: var(--yellow); }
+.has-orange-color     { color: var(--orange); }
+.has-black-color      { color: var(--black); }
+.has-white-color      { color: var(--white); }
+
+.has-blue-dark-background-color  { background-color: var(--blue-dark); }
+.has-blue-background-color       { background-color: var(--blue-bg); }
+.has-blue-light-background-color { background-color: var(--blue-light); }
+.has-yellow-background-color     { background-color: var(--yellow); }
+.has-orange-background-color     { background-color: var(--orange); }
+.has-black-background-color      { background-color: var(--black); }
+.has-white-background-color      { background-color: var(--white); }
+
+/* TYPOGRAPHY */
+@font-face {
+	font-family: 'Montserrat';
+	src: local('Montserrat'),
+	     url('assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+/*
+@font-face {
+	font-family: 'Montserrat';
+	src: local('Montserrat'),
+	     url('assets/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+*/
+
+body {
+	font-weight: 500;
+}
+
+.site {
+	background-color: var(--blue-dark);
+}
+
+.callout {
+	position: relative;
+	border: 4px solid var(--blue-light);
+	padding: 1rem var(--gap);
+	margin-bottom: calc( 2 * var(--gap) );
+}
+.callout:after {
+	content: " ";
+	position: absolute;
+	bottom: -32px;
+	right: 96px;
+	height: 64px;
+	width: 64px;
+	background-image: url('assets/img/callout-badge.png');
+	background-size: contain;
+}
+
+
+/* Strip down the page if it's Coming Soon */
+.coming-soon {
+	& * {
+		--font-size-0: 20px;
+		--font-size-sm: 16px;
+
+		font-size: var(--font-size-0);
+	}
+
+	& #page {
+		display: block;
+	}
+
+	& .site-header-wrap,
+	& .site-footer-wrap {
+		display: none;
+	}
+
+	& .site {
+		background-color: var(--blue-dark);
+		background: linear-gradient(45deg, var(--blue-bg) 0%, var(--blue-dark) 100%);
+
+		& * {
+			color: var(--white);
+		}
+
+		.entry-header,
+		.entry-footer { display: none; }
+
+	}
+
+	& .entry-content {
+		display: grid;
+		/* grid-template-rows: 1fr 1fr auto; */
+		grid-template-rows: auto;
+		grid-auto-columns: 1fr;
+		gap: 0px 0px;
+		grid-auto-flow: row;
+	}
+
+	.body-content1 {
+		grid-area: 1 / 1 / 2 / 2;
+		margin-bottom: 0;
+	}
+	.body-content2 {
+		grid-area: 2 / 1 / 3 / 2;
+		margin-bottom: 0;
+		background-image: url( 'assets/img/getty-images-fcpWauHI700-645x550.png');
+		background-repeat: no-repeat;
+		background-position: calc( ( 100vw - var(--aligndefault) ) / 2 ) bottom;
+		background-size: calc( ( var(--aligndefault) / 2 ) * 0.8);
+		min-height: calc( ( ( var(--aligndefault) / 2 ) * 0.8 ) * 0.853) ;
+	}
+	.body-footer {
+		grid-area: 3 / 1 / 4 / 2;
+		margin-bottom: 0;
+	}
+
+	h1 {
+		font-size: var(--font-size-0);
+		text-transform: uppercase;
+	}
+
+	.wp-block-column.benefits {
+
+		& .wp-block-columns {
+			padding: 0 !important;
+			margin-bottom: calc( 0.5 * var(--gap));
+			gap: 5% !important;
+
+			& .wp-block-column * {
+				margin-bottom: 0;
+			}
+		}
+
+		& .wp-block-group.is-layout-flex {
+			align-items: center;
+			justify-content: flex-start;
+			margin-bottom: calc( var(--gap) / 4 );
+
+			& figure {
+				width: 20%;
+
+				& img {
+					max-width: 100%;
+				}
+			}
+		}
+
+		& p {
+			text-transform: uppercase;
+		}
+	}
+
+	.body-footer {
+		text-transform: uppercase;
+		padding-top: var(--gap);
+		padding-bottom: var(--gap);
+	}
+}
+.coming-soon.admin-bar .entry-content {
+	min-height: calc( 100vh - 32px );
+}
+@media screen and (max-width:781px) {
+	.coming-soon.admin-bar .entry-content {
+		min-height: calc( 100vh - 46px );
+	}
+	.coming-soon .body-content2 {
+		background-size: 80vw;
+		background-position: center bottom;
+	}
+	.coming-soon .body-content2 .wp-block-columns {
+		padding-bottom: calc( 80vw * 0.853 );
+
+		& .wp-block-spacer {
+			display: none;
+		}
+	}
+}
+@media screen and (min-width:782px) and (max-width:1130px) {
+	.coming-soon .body-content2 {
+		background-size: calc( ( var(--aligndefault) * 0.5 ) * 0.8 );
+		background-position: var(--page-margin) bottom;
+	}
+}
