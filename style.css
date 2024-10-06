@@ -138,14 +138,12 @@ body {
 	.body-content1 {
 		grid-area: 1 / 1 / 2 / 2;
 		margin-bottom: 0;
-	}
-	.body-content2 {
-		grid-area: 2 / 1 / 3 / 2;
-		margin-bottom: 0;
-		background-image: url( 'assets/img/getty-images-fcpWauHI700-645x550.png');
+		background-image:
+			url( 'assets/img/getty-images-fcpWauHI700-645x550.png' ),
+			url( 'assets/img/bg-logo-translucent.png' );
 		background-repeat: no-repeat;
-		background-position: calc( ( 100vw - var(--aligndefault) ) / 2 ) bottom;
-		background-size: calc( ( var(--aligndefault) / 2 ) * 0.8);
+		background-position: var(--page-margin) bottom, 25% bottom;
+		background-size: 50vw, 35vw;
 		min-height: calc( ( ( var(--aligndefault) / 2 ) * 0.8 ) * 0.853) ;
 	}
 	.body-footer {
@@ -202,21 +200,25 @@ body {
 	.coming-soon.admin-bar .entry-content {
 		min-height: calc( 100vh - 46px );
 	}
-	.coming-soon .body-content2 {
-		background-size: 80vw;
-		background-position: center bottom;
-	}
-	.coming-soon .body-content2 .wp-block-columns {
-		padding-bottom: calc( 80vw * 0.853 );
-
-		& .wp-block-spacer {
-			display: none;
-		}
+	.coming-soon.admin-bar .entry-content .body-content1 {
+		background-size: 90vw, 60vw;
+		background-position center bottom, center bottom;
+		padding-bottom: calc( 90vw * 0.75 );
 	}
 }
-@media screen and (min-width:782px) and (max-width:1130px) {
-	.coming-soon .body-content2 {
-		background-size: calc( ( var(--aligndefault) * 0.5 ) * 0.8 );
-		background-position: var(--page-margin) bottom;
+@media screen and (min-width:782px) and (max-width:1249px) {
+	.coming-soon .entry-content .body-content1 {
+		background-position: calc( -2 * var(--page-margin) ) bottom, 15% bottom;
+	}
+}
+@media screen and (min-width:1250px) and (max-width: 1474px) {
+	.coming-soon .entry-content .body-content1 {
+		background-position: var(--page-margin) bottom, 20% bottom;
+	}
+}
+@media screen and (min-width:1450px) {
+	.coming-soon .entry-content .body-content1 {
+		background-position: calc( 2 * var(--page-margin) ) bottom, 20% bottom;
+		background-size: 750px, 500px;
 	}
 }
