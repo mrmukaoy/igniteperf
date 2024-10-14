@@ -94,6 +94,10 @@ function ignite_body_classes( $classes ) {
 		$classes[] = 'coming-soon';
 		return $classes;
 	}
+	if ( is_page() && 'Resources' == get_the_title() ) {
+		$classes[] = 'resources';
+		return $classes;
+	}
 }
 add_filter( 'body_class','ignite_body_classes' );
 

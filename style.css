@@ -28,7 +28,10 @@ Version:     1.0.0
 	--font-secondary: var(--font-primary);
 	--font-heading:   var(--font-secondary);
 
-	--border-radius:  0.125rem;
+	--border-radius:  0;
+	--button-bg: var(--orange);
+	--button-border-color: var(--orange);
+	--button-border-color-hover: #f57300;
 
 }
 
@@ -48,6 +51,7 @@ Version:     1.0.0
 .has-orange-background-color     { background-color: var(--orange); }
 .has-black-background-color      { background-color: var(--black); }
 .has-white-background-color      { background-color: var(--white); }
+
 
 /* TYPOGRAPHY */
 @font-face {
@@ -73,6 +77,18 @@ body {
 	font-weight: 500;
 }
 
+h3 { font-size: var(--font-size-1); }
+h2 { font-size: var(--font-size-2); }
+h1 { font-size: var(--font-size-3); }
+
+.wp-block-button__link {
+	color: var(--blue-dark);
+}
+.wp-block-button__link:hover,
+.wp-block-button__link:focus {
+	background-color: #f56a00;
+}
+
 .site {
 	background-color: var(--blue-dark);
 }
@@ -95,12 +111,33 @@ body {
 }
 
 
-/* Strip down the page if it's Coming Soon */
+/* Strip down the page if it's Coming Soon or Resources */
 .coming-soon {
+	.body-content1 {
+		background-image:
+			url( 'assets/img/getty-images-fcpWauHI700-645x550.png' ),
+			url( 'assets/img/bg-logo-translucent.png' );
+		background-repeat: no-repeat;
+		background-position: var(--page-margin) bottom, 25% bottom;
+		background-size: 50vw, 35vw;
+		min-height: calc( ( ( var(--aligndefault) / 2 ) * 0.8 ) * 0.853) ;
+	}
+
+	h1 {
+		font-size: var(--font-size-0);
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+
+}
+.coming-soon,
+.resources {
 	& * {
 		--font-size-0: 20px;
 		--font-size-sm: 16px;
+	}
 
+	& *:not(h1) {
 		font-size: var(--font-size-0);
 	}
 
@@ -117,7 +154,7 @@ body {
 		background-color: var(--blue-dark);
 		background: linear-gradient(45deg, var(--blue-bg) 0%, var(--blue-dark) 100%);
 
-		& * {
+		& *:not(.wp-block-button__link) {
 			color: var(--white);
 		}
 
@@ -138,13 +175,6 @@ body {
 	.body-content1 {
 		grid-area: 1 / 1 / 2 / 2;
 		margin-bottom: 0;
-		background-image:
-			url( 'assets/img/getty-images-fcpWauHI700-645x550.png' ),
-			url( 'assets/img/bg-logo-translucent.png' );
-		background-repeat: no-repeat;
-		background-position: var(--page-margin) bottom, 25% bottom;
-		background-size: 50vw, 35vw;
-		min-height: calc( ( ( var(--aligndefault) / 2 ) * 0.8 ) * 0.853) ;
 	}
 	.body-footer {
 		grid-area: 3 / 1 / 4 / 2;
@@ -152,7 +182,6 @@ body {
 	}
 
 	h1 {
-		font-size: var(--font-size-0);
 		text-transform: uppercase;
 	}
 
@@ -193,14 +222,16 @@ body {
 		padding-bottom: var(--gap);
 	}
 }
-.coming-soon.admin-bar .entry-content {
+.coming-soon.admin-bar .entry-content,
+.resources.admin-bar .entry-content {
 	min-height: calc( 100vh - 32px );
 }
 @media screen and (max-width:781px) {
-	.coming-soon.admin-bar .entry-content {
+	.coming-soon.admin-bar .entry-content,
+	.resources.admin-bar .entry-content {
 		min-height: calc( 100vh - 46px );
 	}
-	.coming-soon.admin-bar .entry-content .body-content1 {
+	.coming-soon .entry-content .body-content1 {
 		background-size: 90vw, 60vw;
 		background-position center bottom, center bottom;
 		padding-bottom: calc( 90vw * 0.75 );
